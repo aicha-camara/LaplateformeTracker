@@ -26,4 +26,15 @@ public class Database {
             throw e;
         }
     }
+
+    // Method to close the connection
+    public void close() {
+        try {
+            if (this.curseur != null) this.curseur.close();
+            if (this.connexion != null) this.connexion.close();
+        } catch (SQLException e) {
+            System.out.println("Failed to close the connection: " + e.getMessage());
+        }
+    }
 }
+
