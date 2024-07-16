@@ -14,3 +14,16 @@ public class Database {
     private static final String USER = "root";
     private static final String PASSWORD = "za9?-U5zwD4-6#L";
     private static final String DATABASE = "tracker";
+
+    // Constructor to initialize the connection
+    public Database() throws SQLException {
+        try {
+            this.connexion = DriverManager.getConnection(
+                "jdbc:mysql://" + HOST + "/" + DATABASE, USER, PASSWORD
+            );
+        } catch (SQLException e) {
+            System.out.println("Connection failed: " + e.getMessage());
+            throw e;
+        }
+    }
+}
